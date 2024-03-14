@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grid Example</title>
+<style>
+  /* Stili CSS per il body */
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+  }
+
+  /* Stili CSS per la griglia e le immagini */
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(3, 100px); /* 3 colonne di 100px ciascuna */
+    grid-template-rows: repeat(3, 100px); /* 3 righe di 100px ciascuna */
+    width: 60%; /* Dimensione della griglia al 60% dello schermo */
+    gap: 0px; /* Spazio tra i quadrati */
+  }
+
+  .item-box {
+    border: 0px solid #0f0a0a;
+    overflow: hidden; /* Nasconde l'eventuale overflow delle immagini */
+    position: relative;
+    cursor: pointer; /* Cambia il cursore quando si passa sopra un'immagine */
+  }
+
+  .piece {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .puzzle img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Zoom dell'immagine per riempire completamente il quadrato */
+    transition: transform 0.3s ease; /* Aggiungiamo una transizione per rendere l'animazione più fluida */
+  }
+
+   /* Aggiungiamo uno stile per l'animazione quando l'utente passa il mouse sopra l'immagine */
+   .puzzle:hover img {
+    transform: scale(1.2); 
+    /* Aumentiamo leggermente le dimensioni dell'immagine quando il mouse è sopra di essa */
+    
+    .lightbox {
+    position: fixed;
+    top: 10%; /* Distanza dal bordo superiore */
+    right: 10%; /* Distanza dal bordo destro */
+    transform: translateY(-50%); /* Per centrare verticalmente */
+    background-color: rgba(255, 255, 255, 0.9); /* Sfondo bianco traslucido */
+    padding: 20px;
+    border: 1px solid #ccc;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    z-index: 999; /* Assicura che il rettangolo sia al di sopra del resto del contenuto */
+    display: none; /* Di default, il rettangolo è nascosto */
+    max-width: 80%; /* Dimensione massima del rettangolo */
+    max-height: 80%; /* Dimensione massima del rettangolo */
+  }
+
+  .lightbox img {
+    max-width: 100%;
+    max-height: 100%;
+  }
+  }
+</style>
+</head>
+<body>
+  <!-- Griglia di immagini -->
+  <div class="grid"> <!-- Inizia il contenitore della griglia -->
+    <!-- Prima riga -->
+    <div class="item-box"> <!-- Inizia il box dell'elemento -->
+      <div class="piece"> <!-- Inizia il pezzo dell'immagine -->
+        <div class="puzzle"> <!-- Inizia l'area di ritaglio -->
+          <img src="images/image1.jpg" alt="Image 1"> <!-- Inserisce l'immagine -->
+        </div>
+      </div>
+    </div>
+    <div class="item-box"> <!-- Inizia il box dell'elemento -->
+        <div class="piece"> <!-- Inizia il pezzo dell'immagine -->
+          <div class="puzzle"> <!-- Inizia l'area di ritaglio -->
+            <img src="images/image2.jpg" alt="Image 1"> <!-- Inserisce l'immagine -->
+          </div>
+        </div>
+      </div>
+      <div class="item-box"> <!-- Inizia il box dell'elemento -->
+        <div class="piece"> <!-- Inizia il pezzo dell'immagine -->
+          <div class="puzzle"> <!-- Inizia l'area di ritaglio -->
+            <img src="images/image3.JPG" alt="Image 1"> <!-- Inserisce l'immagine -->
+          </div>
+        </div>
+      </div>
+      <div class="item-box"> <!-- Inizia il box dell'elemento -->
+        <div class="piece"> <!-- Inizia il pezzo dell'immagine -->
+          <div class="puzzle"> <!-- Inizia l'area di ritaglio -->
+            <img src="images/image4.jpg" alt="Image 1"> <!-- Inserisce l'immagine -->
+          </div>
+        </div>
+      </div>
+      <div class="item-box"> <!-- Inizia il box dell'elemento -->
+        <div class="piece"> <!-- Inizia il pezzo dell'immagine -->
+          <div class="puzzle"> <!-- Inizia l'area di ritaglio -->
+            <img src="images/image5.jpg" alt="Image 1"> <!-- Inserisce l'immagine -->
+          </div>
+        </div>
+      </div>
+      <div class="item-box"> <!-- Inizia il box dell'elemento -->
+        <div class="piece"> <!-- Inizia il pezzo dell'immagine -->
+          <div class="puzzle"> <!-- Inizia l'area di ritaglio -->
+            <img src="images/image6.jpg" alt="Image 1"> <!-- Inserisce l'immagine -->
+          </div>
+        </div>
+      </div>
+      <div class="item-box"> <!-- Inizia il box dell'elemento -->
+        <div class="piece"> <!-- Inizia il pezzo dell'immagine -->
+          <div class="puzzle"> <!-- Inizia l'area di ritaglio -->
+            <img src="images/image7.jpg" alt="Image 1"> <!-- Inserisce l'immagine -->
+          </div>
+        </div>
+      </div>
+      <div class="item-box"> <!-- Inizia il box dell'elemento -->
+        <div class="piece"> <!-- Inizia il pezzo dell'immagine -->
+          <div class="puzzle"> <!-- Inizia l'area di ritaglio -->
+            <img src="images/image8.jpg" alt="Image 1"> <!-- Inserisce l'immagine -->
+          </div>
+        </div>
+      </div>
+      <div class="item-box"> <!-- Inizia il box dell'elemento -->
+        <div class="piece"> <!-- Inizia il pezzo dell'immagine -->
+          <div class="puzzle"> <!-- Inizia l'area di ritaglio -->
+            <img src="images/image9.jpg" alt="Image 1"> <!-- Inserisce l'immagine -->
+          </div>
+        </div>
+      </div>
+
+  </div>
+   <!-- Rettangolo per visualizzare l'immagine ingrandita -->
+   <div class="lightbox" id="lightbox"></div>
+
+  <!-- Aggiungi uno script JavaScript -->
+  
+  
+  <script>
+    // Codice JavaScript per gestire l'evento di click sull'immagine
+    const itemBoxes = document.querySelectorAll('.item-box');
+    const lightbox = document.getElementById('lightbox');
+  
+    // Aggiungi un listener per l'evento di click su ogni elemento della griglia
+    itemBoxes.forEach(itemBox => {
+      itemBox.addEventListener('click', () => {
+        const imgSrc = itemBox.querySelector('img').getAttribute('src');
+        showLightbox(imgSrc);
+      });
+    });
+  
+    // Funzione per visualizzare il rettangolo con l'immagine ingrandita
+    function showLightbox(imgSrc) {
+      lightbox.innerHTML = `<img src="${imgSrc}" alt="Image">`;
+      lightbox.style.display = 'block';
+    }
+  
+    // Aggiungi un listener per chiudere il rettangolo cliccandoci sopra
+    lightbox.addEventListener('click', () => {
+      lightbox.style.display = 'none';
+    });
+  </script>
+  </body>
+  </html>
